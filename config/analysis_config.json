@@ -1,0 +1,235 @@
+{
+  "analysis_settings": {
+    "version": "1.0.0",
+    "analysis_type": "contingency_professional",
+    "output_precision": 6,
+    "enable_validation": true,
+    "enable_visualization": true,
+    "enable_reporting": true
+  },
+  
+  "data_processing": {
+    "missing_value_strategy": "exclude",
+    "zero_handling": "preserve",
+    "normalization": "none",
+    "outlier_detection": true,
+    "outlier_threshold": 3.0
+  },
+  
+  "contingency_analysis": {
+    "require_square_tables": false,
+    "min_cell_count": 1,
+    "min_expected_frequency": 5,
+    "max_expected_frequency_violations": 0.2,
+    "confidence_level": 0.95,
+    "continuity_correction": true
+  },
+  
+  "confusion_matrix": {
+    "matrix_format": "standard",
+    "include_percentages": true,
+    "include_marginals": true,
+    "normalize_options": ["none", "true", "pred", "all"]
+  },
+  
+  "global_fit_analysis": {
+    "chi_square_test": {
+      "enabled": true,
+      "significance_level": 0.05,
+      "min_expected_frequency": 5,
+      "continuity_correction": true
+    },
+    "likelihood_ratio_test": {
+      "enabled": true,
+      "significance_level": 0.05
+    },
+    "goodness_of_fit": {
+      "enabled": true,
+      "include_residuals": true,
+      "standardized_residuals": true
+    }
+  },
+  
+  "cramers_v_analysis": {
+    "enabled": true,
+    "confidence_intervals": true,
+    "bootstrap_samples": 1000,
+    "bias_correction": true,
+    "effect_size_interpretation": {
+      "small": 0.1,
+      "medium": 0.3,
+      "large": 0.5
+    }
+  },
+  
+  "visualization": {
+    "pie_charts": {
+      "enabled": true,
+      "style": "professional",
+      "color_scheme": "Set3",
+      "show_percentages": true,
+      "show_counts": true,
+      "explode_largest": false,
+      "min_slice_percentage": 1.0,
+      "figure_size": [10, 8],
+      "dpi": 300,
+      "format": "png"
+    },
+    "radar_charts": {
+      "enabled": true,
+      "style": "professional",
+      "color_scheme": "viridis",
+      "show_grid": true,
+      "show_legend": true,
+      "normalize_values": true,
+      "figure_size": [10, 10],
+      "dpi": 300,
+      "format": "png"
+    },
+    "general": {
+      "theme": "professional",
+      "font_family": "Arial",
+      "font_size": 12,
+      "title_font_size": 14,
+      "save_high_res": true,
+      "save_vector": true
+    }
+  },
+  
+  "validation": {
+    "data_validator": {
+      "enabled": true,
+      "min_categories": 2,
+      "max_categories": 50,
+      "min_observations": 10,
+      "max_missing_percentage": 0.05,
+      "strict_mode": false
+    },
+    "matrix_validator": {
+      "enabled": true,
+      "require_square_matrices": false,
+      "min_matrix_size": 2,
+      "max_matrix_size": 100,
+      "allow_zero_diagonal": true,
+      "max_condition_number": 1e12
+    },
+    "stats_validator": {
+      "enabled": true,
+      "min_p_value": 0.0,
+      "max_p_value": 1.0,
+      "min_degrees_of_freedom": 1,
+      "significance_level": 0.05,
+      "min_effect_size": 0.01,
+      "max_expected_freq_violations": 0.2
+    }
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "log_file": "logs/analysis.log",
+    "max_file_size": "10MB",
+    "backup_count": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "console_output": true,
+    "file_output": true
+  },
+  
+  "output": {
+    "base_directory": "output",
+    "create_subdirectories": true,
+    "include_timestamp": true,
+    "preserve_input_names": true,
+    "formats": {
+      "results": "json",
+      "tables": "csv",
+      "matrices": "csv",
+      "statistics": "json",
+      "report": "html"
+    }
+  },
+  
+  "reporting": {
+    "comprehensive_report": {
+      "enabled": true,
+      "include_validation_results": true,
+      "include_statistical_interpretation": true,
+      "include_visualizations": true,
+      "include_recommendations": true,
+      "format": "html",
+      "template": "professional"
+    },
+    "executive_summary": {
+      "enabled": true,
+      "max_length": 500,
+      "include_key_findings": true,
+      "include_statistical_significance": true
+    }
+  },
+  
+  "performance": {
+    "parallel_processing": {
+      "enabled": true,
+      "max_workers": 4,
+      "chunk_size": 100
+    },
+    "memory_management": {
+      "max_memory_usage": "2GB",
+      "garbage_collection": true,
+      "cache_results": true
+    },
+    "optimization": {
+      "use_sparse_matrices": true,
+      "vectorized_operations": true,
+      "early_stopping": true
+    }
+  },
+  
+  "quality_assurance": {
+    "reproducibility": {
+      "random_seed": 42,
+      "version_tracking": true,
+      "parameter_logging": true
+    },
+    "testing": {
+      "unit_tests": true,
+      "integration_tests": true,
+      "statistical_tests": true
+    },
+    "documentation": {
+      "auto_generate": true,
+      "include_methodology": true,
+      "include_limitations": true
+    }
+  },
+  
+  "security": {
+    "data_privacy": {
+      "anonymize_output": false,
+      "secure_temp_files": true,
+      "cleanup_temp_files": true
+    },
+    "access_control": {
+      "require_authentication": false,
+      "log_access": true,
+      "restrict_file_access": true
+    }
+  },
+  
+  "integration": {
+    "database": {
+      "enabled": false,
+      "connection_string": "",
+      "table_prefix": "contingency_",
+      "backup_results": true
+    },
+    "external_tools": {
+      "r_integration": false,
+      "matlab_integration": false,
+      "spss_integration": false
+    },
+    "apis": {
+      "rest_api": false,
+      "webhook_notifications": false
+    }
+  }
+}

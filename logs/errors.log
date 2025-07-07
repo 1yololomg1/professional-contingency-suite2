@@ -1,0 +1,1 @@
+2025-07-04 21:24:21 - ContingencyAnalyzer - [31mERROR[0m - main_analyzer - analyze_excel_file - 241 - Analysis failed: cannot access local variable 'validation_status' where it is not associated with a value
